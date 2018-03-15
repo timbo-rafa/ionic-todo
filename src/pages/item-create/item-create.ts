@@ -19,9 +19,12 @@ export class ItemCreatePage {
 
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera) {
     this.form = formBuilder.group({
-      profilePic: [''],
-      name: ['', Validators.required],
-      about: ['']
+      //profilePic: [''],
+      //name: ['', Validators.required],
+      //about: ['']
+      title: ['', Validators.required],
+      description: [''],
+      deadline:['', Validators.required]
     });
 
     // Watch the form for changes, and
@@ -48,6 +51,10 @@ export class ItemCreatePage {
     } else {
       this.fileInput.nativeElement.click();
     }
+  }
+
+  dateplaceholder() {
+    return Date.now()
   }
 
   processWebImage(event) {
