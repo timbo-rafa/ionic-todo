@@ -14,6 +14,9 @@ import { Settings } from '../providers/providers';
 import { User } from '../providers/providers';
 import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
+import { TodoProvider } from '../providers/todo/todo';
+import { File } from '@ionic-native/file'
+import { AndroidPermissions } from '@ionic-native/android-permissions'
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -58,6 +61,8 @@ export function provideSettings(storage: Storage) {
     MyApp
   ],
   providers: [
+    File,
+    AndroidPermissions,
     Api,
     Items,
     User,
@@ -66,7 +71,8 @@ export function provideSettings(storage: Storage) {
     StatusBar,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    TodoProvider
   ]
 })
 export class AppModule { }

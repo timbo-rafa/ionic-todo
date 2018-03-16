@@ -45,7 +45,7 @@
         <ion-input type="text" placeholder="{{ 'ITEM_DESCRIPTION_PLACEHOLDER' | translate }}" formControlName="description"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-datetime placeholder="Pick a date" formControlName="deadline"></ion-datetime>
+          <ion-datetime placeholder="Pick a date" displayFormat="DD/MM/YYYY HH:mm" min="2017-01-01" max="2030-10-31" formControlName="deadline"></ion-datetime>
           <!-- <ion-input type="text" placeholder="DD/MM/YYYY HH:mm" formControlName="deadline"></ion-input> -->
         </ion-item>
     </ion-list>

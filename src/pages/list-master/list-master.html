@@ -13,7 +13,31 @@
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of currentTodos">
+      <button ion-item (click)="openItem(item)">
+        <h2>{{item.title}}</h2>
+        <p item-end right>{{item.deadline}}</p>
+        <p>{{item.description}}</p>
+        <ion-note item-end *ngIf="item.deadline">{{item.dealine}}</ion-note>
+      </button>
 
+      <ion-item-options>
+        <button ion-button color="danger" (click)="deleteItem(item)">
+          {{ 'DELETE_BUTTON' | translate }}
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <div *ngIf="clickedItem" margin>
+    <h1>TODO:</h1>
+    <h2>{{clickedItem?.title}}</h2>
+    <p>{{clickedItem?.description}}</p>
+    <p> Deadline: {{clickedItem?.deadline}}</p>
+
+  </div>
+  <!--
   <ion-list>
     <ion-item-sliding *ngFor="let item of currentItems">
       <button ion-item (click)="openItem(item)">
@@ -32,4 +56,5 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
+  -->
 </ion-content>
